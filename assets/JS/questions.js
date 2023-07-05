@@ -63,3 +63,8 @@ let questions = [
         correctAnswer: 3
     },
 ];
+
+for (var i = 0; i < questions.length; i++) {
+    var question = questions[i].question;
+    var answers = questions[i].answers;
+}
