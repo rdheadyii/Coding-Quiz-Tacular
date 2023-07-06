@@ -11,5 +11,26 @@
 
 // stop to question function and log score = read interval value, request user name, and store in local storage
 
+var mainEle = document.querySelector("#main")
+var timerEle = document.querySelector("#timer")
+var timeLeft = 90;
+var totalPoints = 0;
+var end = false;
 
+var timer = function () {
+    var timeInterval = setInterval(() => {
+        if (end === false) {
+            timerEle.textContent = timeLeft;
+            timeLeft--;
+            return timeLeft;
+        } else {
+            timerEle.textContent = "";
+            clearInterval(timeInterval)
+        }
+    }, 1000);
+
+    if (end === true) {
+        timerEle.textContent = timeLeft;
+    }
+}
 
