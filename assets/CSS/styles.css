@@ -1,0 +1,73 @@
+:root {
+    --color: #33FFCE;
+    --hoverColor: blueviolet;
+    --fontColor: white;
+    --background: #36393e;
+}
+
+body {
+    background-color: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 75px;
+    margin: 25px 0;
+    color: var(--fontColor);
+}
+
+header a:link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header a:visited {
+    color: var(--fontColor);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    color: var(--fontColor);
+}
+
+.start-container {
+    display: flex;
+    justify-content: center;
+}
+
+.start-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    margin: 10px 0;
+
+}
+
+.start-message {
+    font-size: 25px;
+    font-weight: 400;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.start-btn {
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+    color: var(--fontColor);
+    background-color: var(--color);
+    border: 3px var(--hoverColor) solid;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background-color: var(--hoverColor);
+    border: 3px var(--color) solid;
+    cursor: pointer;
+}
