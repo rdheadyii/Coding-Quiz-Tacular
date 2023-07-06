@@ -45,7 +45,7 @@ let questions = [
         question: "In JavaScript what is the difference between Arrays and Objects?",
         answers: [
             "An Array is a giant laser beam of code, while an Object is just a box",
-            "There is no difference why did you ask this",
+            "There is no difference why did you ask me this",
             "Array's use numbered indexes, while Object's use named indexes",
             "All of the above"
         ],
@@ -64,7 +64,3 @@ let questions = [
     },
 ];
 
-for (var i = 0; i < questions.length; i++) {
-    var question = questions[i].question;
-    var answers = questions[i].answers;
-}

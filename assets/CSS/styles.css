@@ -35,6 +35,7 @@ main {
 
 .start-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -58,16 +59,54 @@ main {
     text-align: center;
     padding: 15px;
     margin: 10px 0;
-    color: var(--fontColor);
+    color: var(--hoverColor);
     background-color: var(--color);
     border: 3px var(--hoverColor) solid;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
+    flex-basis: 1;
 }
 
 .start-btn:hover {
     background-color: var(--hoverColor);
     border: 3px var(--color) solid;
     cursor: pointer;
+    color: var(--color);
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    padding: 10px 15px;
+}
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.answers {
+    max-width: 500px;
+    max-height: 200px;
+    text-align: left;
+    margin: 5px 0;
+    padding: 10px 15px;
+    color: var(--hoverColor);
+    background-color: var(--color);
+    border: 3px var(--hoverColor) solid;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.answers:hover {
+    background-color: var(--hoverColor);
+    border: 3px var(--color) solid;
+    cursor: pointer;
+    color: var(--color);
 }
