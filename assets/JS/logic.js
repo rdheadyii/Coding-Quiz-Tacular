@@ -13,7 +13,7 @@
 
 var mainEle = document.querySelector("#main")
 var timerEle = document.querySelector("#timer")
-var timeLeft = 90;
+var timeLeft = 60;
 var totalPoints = 0;
 var end = false;
 var questionIndex;
@@ -21,19 +21,19 @@ var questionIndex;
 var quesContainer = document.createElement("div");
     quesContainer.className = "question-container";
 
-    let results = document.createElement("h2");
-    mainEle.appendChild(results);
-
+let results = document.createElement("h2");
+    results.className = "question-container";
 
 function timer () {
     var timeInterval = setInterval(() => {
-        if (end === false) {
+        if (timeLeft >= 0) {
             timerEle.textContent = timeLeft;
             timeLeft--;
             return timeLeft;
         } else {
             timerEle.textContent = "";
-            clearInterval(timeInterval)
+            clearInterval(timeInterval);
+            window.location.href = "./highscores.html"
         }
     }, 1000);
 
@@ -51,10 +51,12 @@ function runQuestions () {
     questionEle.textContent = currentQuestion.question;
 
     let answersUl = document.createElement("ul");
+        answersUl.className = "answer-container"
 
     for (let i = 0; i < currentQuestion.answers.length; i++) {
 
         let ansButton = document.createElement("button");
+            ansButton.className = "answers"
 
         ansButton.textContent = currentQuestion.answers[i];
 
@@ -64,8 +66,6 @@ function runQuestions () {
     quesContainer.appendChild(questionEle);
     quesContainer.appendChild(answersUl);
 }
-
-
 
 function start () {
 
@@ -94,6 +94,8 @@ function start () {
 
         mainEle.appendChild(quesContainer);
 
+        mainEle.appendChild(results);
+
         questionIndex = 0;
         runQuestions();
     });
@@ -112,6 +114,7 @@ quesContainer.addEventListener("click", function (event) {
             results.textContent = "Correct!";
         } else {
             results.textContent = "Wrong!";
+            timeLeft -= 10;
         }
 
         questionIndex++;

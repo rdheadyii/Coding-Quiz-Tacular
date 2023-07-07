@@ -1,7 +1,7 @@
 :root {
     --color: #33FFCE;
     --hoverColor: blueviolet;
-    --fontColor: white;
+    --fontColor: #2CD4E1;
     --background: #36393e;
 }
 
@@ -80,6 +80,7 @@ main {
 .question-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .question {
