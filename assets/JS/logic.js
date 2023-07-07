@@ -21,6 +21,9 @@ var questionIndex;
 var quesContainer = document.createElement("div");
     quesContainer.className = "question-container";
 
+    let results = document.createElement("h2");
+    mainEle.appendChild(results);
+
 
 function timer () {
     var timeInterval = setInterval(() => {
@@ -102,14 +105,12 @@ start();
 quesContainer.addEventListener("click", function (event) {
     let element = event.target;
 
+    let currentQuestion = questions[questionIndex]
+
     if (element.matches("button")) {
-        if(element.textContent === questions[questionIndex].correctAnswer) {
-            let results = document.createElement("h2");
-            quesContainer.appendChild(results);
+        if(element.textContent === currentQuestion.answers[currentQuestion.correctAnswer]) {
             results.textContent = "Correct!";
         } else {
-            let results = document.createElement("h2");
-            quesContainer.appendChild(results);
             results.textContent = "Wrong!";
         }
 
