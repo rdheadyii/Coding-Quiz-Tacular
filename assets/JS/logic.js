@@ -21,8 +21,10 @@ var questionIndex;
 var quesContainer = document.createElement("div");
     quesContainer.className = "question-container";
 
-let results = document.createElement("h2");
+var results = document.createElement("h2");
     results.className = "question-container";
+
+var highscoresPage = document.querySelector("#highscores-page")
 
 function navScore() {
     clearInterval(timeInterval);
@@ -83,7 +85,7 @@ function start () {
 
     var startMessage = document.createElement("p");
     startMessage.className = "start-message";
-    startMessage.textContent = "QUIZ TIME!! 90 seconds on the clock! Do you have what it takes to capture the highscore?"
+    startMessage.textContent = "QUIZ TIME!! 60 seconds on the clock! Do you have what it takes to capture the highscore?"
     container.appendChild(startMessage)
 
     var startBtn = document.createElement("button");
@@ -127,4 +129,10 @@ quesContainer.addEventListener("click", function (event) {
             navScore();
         }
     }
+});
+
+highscoresPage.addEventListener("click", function () {
+    clearInterval(timeInterval);
+    localStorage.setItem("new-score", -1);
+    window.location.href = "./highscores.html"
 });
