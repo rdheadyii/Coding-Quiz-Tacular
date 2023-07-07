@@ -7,6 +7,7 @@ var title = document.createElement("h1");
     title.textContent = "Highscores Leaderboard!"
     mainEl.appendChild(title);
 var scoreBoard = document.createElement("div");
+    scoreBoard.className = "scoreboard";
     mainEl.appendChild(scoreBoard);
 
 var recentScores;
@@ -19,12 +20,12 @@ function leaderBoard () {
     let scoreChart = document.createElement("ol");
 
     for (let i = 0; i < recentScores.length; i++) {
-        let item = document.createElement("li");
+        var item = document.createElement("li");
 
-        let userIni = document.createElement("h3");
+        var userIni = document.createElement("h3");
         userIni.textContent = recentScores[i].initials;
 
-        let userScore = document.createElement("p");
+        var userScore = document.createElement("p");
         userScore.textContent = recentScores[i].score;
         
         item.appendChild(userIni);
@@ -83,3 +84,20 @@ if(JSON.parse(localStorage.getItem("new-score")) !== -1) {
 }
 
 scoreForm.addEventListener("submit", saveUserScore);
+
+var returnHome = document.createElement("button");
+returnHome.className = "score-btns";
+returnHome.textContent = "Return";
+returnHome.addEventListener("click", function() {
+    window.location.href = "./index.html"
+});
+mainEl.appendChild(returnHome)
+
+var clearHighScore = document.createElement("button");
+clearHighScore.className = "score-btns";
+clearHighScore.textContent = "Clear Scores";
+clearHighScore.addEventListener("click", function() {
+    localStorage.clear();
+    scoreBoard.remove();
+});
+mainEl.appendChild(clearHighScore)
