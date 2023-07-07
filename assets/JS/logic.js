@@ -24,16 +24,19 @@ var quesContainer = document.createElement("div");
 let results = document.createElement("h2");
     results.className = "question-container";
 
+function navScore() {
+    clearInterval(timeInterval);
+    localStorage.setItem("new-score", timeLeft);
+    window.location.href = "./highscores.html"
+}
+
 function timer () {
-    var timeInterval = setInterval(() => {
+    timeInterval = setInterval(() => {
         if (timeLeft >= 0) {
             timerEle.textContent = timeLeft;
             timeLeft--;
-            return timeLeft;
         } else {
-            timerEle.textContent = "";
-            clearInterval(timeInterval);
-            window.location.href = "./highscores.html"
+            navScore();
         }
     }, 1000);
 
@@ -121,7 +124,7 @@ quesContainer.addEventListener("click", function (event) {
         if (questionIndex < questions.length) {
             runQuestions();
         } else {
-            window.location.href = "./highscores.html"
+            navScore();
         }
     }
 });
