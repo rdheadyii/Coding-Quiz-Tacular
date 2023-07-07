@@ -18,7 +18,9 @@ var totalPoints = 0;
 var end = false;
 var questionIndex;
 
-var quesContainer;
+var quesContainer = document.createElement("div");
+    quesContainer.className = "question-container";
+
 
 function timer () {
     var timeInterval = setInterval(() => {
@@ -38,6 +40,8 @@ function timer () {
 }
 
 function runQuestions () {
+    quesContainer.innerHTML = "";
+
     let currentQuestion = questions[questionIndex];
 
     let questionEle = document.createElement("h1");
@@ -85,8 +89,6 @@ function start () {
         timer();
         container.remove();
 
-        quesContainer = document.createElement("div");
-        container.className = "question-container";
         mainEle.appendChild(quesContainer);
 
         questionIndex = 0;
@@ -94,4 +96,28 @@ function start () {
     });
 
 }
+
 start();
+
+quesContainer.addEventListener("click", function (event) {
+    let element = event.target;
+
+    if (element.matches("button")) {
+        if(element.textContent === questions[questionIndex].correctAnswer) {
+            let results = document.createElement("h2");
+            quesContainer.appendChild(results);
+            results.textContent = "Correct!";
+        } else {
+            let results = document.createElement("h2");
+            quesContainer.appendChild(results);
+            results.textContent = "Wrong!";
+        }
+
+        questionIndex++;
+        if (questionIndex < questions.length) {
+            runQuestions();
+        } else {
+            window.location.href = "./highscores.html"
+        }
+    }
+});
