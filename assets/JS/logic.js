@@ -135,4 +135,5 @@ highscoresPage.addEventListener("click", function () {
     clearInterval(timeInterval);
     localStorage.setItem("new-score", -1);
     window.location.href = "./highscores.html"
+    document.getElementById("initials").classList.add("hidden")
 });
